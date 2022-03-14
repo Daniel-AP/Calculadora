@@ -77,7 +77,7 @@ def PuntoDecimal(mensaje):
     if len(operaciones.get()) <= 18:
         Num1 = operaciones.get()
         for i in Num1:
-            while i == "." or i == "π":
+            if i == "." or i == "π":
                 mensaje = ""
                 if mensaje == "":
                     break
@@ -105,13 +105,12 @@ def PresentarResultadoComando(mensaje):
 #--------- BOTON COMANDO ---------   
 def BotonComando(mensaje):
     global  Nums, Ver, EstadoOperacion
-
+    if Ver == "Igual":
+        Progreso.delete(0,"end")
+        operaciones.delete(0,"end")
+        Ver = ""
     if len(operaciones.get()) <= 18:
         EstadoOperacion = ""
-        if Ver == "Igual":
-            Progreso.delete(0,"end")
-            operaciones.delete(0,"end")
-            Ver = ""
         Nums = operaciones.get()
         NumsPantalla = ""
         for i in Nums:
@@ -399,76 +398,76 @@ TextoOperaciones = StringVar()
 TextoRecuento = StringVar()
 
 
-c = Button(miFrame,text="C",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command= CBotonComando)
+c = Button(miFrame,border=0.5,text="C",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command= CBotonComando)
 c.grid(row=0,column=1,padx=1,pady=1)
 
-delNums = Button(miFrame,text="\u232B",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command= BotonComandoBorrar)
+delNums = Button(miFrame,border=0.5,text="\u232B",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command= BotonComandoBorrar)
 delNums.grid(row=0,column=2,padx=1,pady=1)
 
-porcentaje = Button(miFrame,text="%",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command= BotonPorcentaje)
+porcentaje = Button(miFrame,border=0.5,text="%",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command= BotonPorcentaje)
 porcentaje.grid(row=5,column=0,padx=1,pady=1)
 
-uno1 = Button(miFrame,text=1,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("1"))
+uno1 = Button(miFrame,border=0.5,text=1,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("1"))
 uno1.grid(row=1,column=0,padx=1,pady=1)
 
-dos2 = Button(miFrame,text=2,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("2"))
+dos2 = Button(miFrame,border=0.5,text=2,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("2"))
 dos2.grid(row=1,column=1,padx=1,pady=1)
 
-tres3 = Button(miFrame,text=3,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("3"))
+tres3 = Button(miFrame,border=0.5,text=3,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("3"))
 tres3.grid(row=1,column=2,padx=1,pady=1)
 
-cuatro4 = Button(miFrame,text=4,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("4"))
+cuatro4 = Button(miFrame,border=0.5,text=4,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("4"))
 cuatro4.grid(row=2,column=0,padx=1,pady=1)
 
-cinco5 = Button(miFrame,text=5,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("5"))
+cinco5 = Button(miFrame,border=0.5,text=5,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("5"))
 cinco5.grid(row=2,column=1,padx=1,pady=1)
 
-seis6 = Button(miFrame,text=6,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("6"))
+seis6 = Button(miFrame,border=0.5,text=6,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("6"))
 seis6.grid(row=2,column=2,padx=1,pady=1)
 
-siete7 = Button(miFrame,text=7,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("7"))
+siete7 = Button(miFrame,border=0.5,text=7,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("7"))
 siete7.grid(row=3,column=0,padx=1,pady=1)
 
-ocho8 = Button(miFrame,text=8,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("8"))
+ocho8 = Button(miFrame,border=0.5,text=8,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("8"))
 ocho8.grid(row=3,column=1,padx=1,pady=1)
 
-nueve9 = Button(miFrame,text=9,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("9"))
+nueve9 = Button(miFrame,border=0.5,text=9,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("9"))
 nueve9.grid(row=3,column=2,padx=1,pady=1)
 
-menos_numero = Button(miFrame,text="+/-",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:Negativo("-"))
+menos_numero = Button(miFrame,border=0.5,text="+/-",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:Negativo("-"))
 menos_numero.grid(row=4,column=0,padx=1,pady=1)
 
-cero0 = Button(miFrame,text=0,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("0"))
+cero0 = Button(miFrame,border=0.5,text=0,font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:BotonComando("0"))
 cero0.grid(row=4,column=1,padx=1,pady=1)
 
-punto = Button(miFrame,text=".",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:PuntoDecimal("."))
+punto = Button(miFrame,border=0.5,text=".",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dodger blue",command= lambda:PuntoDecimal("."))
 punto.grid(row=4,column=2,padx=1,pady=1)
 
-dividir = Button(miFrame,text="÷",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonComandoOperadoresDiv)
+dividir = Button(miFrame,border=0.5,text="÷",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonComandoOperadoresDiv)
 dividir.grid(row=0,column=3,padx=1,pady=1)
 
-Mult = Button(miFrame,text="×",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonComandoOperadoresX)
+Mult = Button(miFrame,border=0.5,text="×",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonComandoOperadoresX)
 Mult.grid(row=1,column=3,padx=1,pady=1)
 
-menos = Button(miFrame,text="-",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonComandoOperadoresMen)
+menos = Button(miFrame,border=0.5,text="-",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonComandoOperadoresMen)
 menos.grid(row=2,column=3,padx=1,pady=1)
 
-mas = Button(miFrame,text="+",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonComandoOperadoresMas)
+mas = Button(miFrame,border=0.5,text="+",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonComandoOperadoresMas)
 mas.grid(row=3,column=3,padx=1,pady=1)
 
-igual = Button(miFrame,text="=",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonIgual)
+igual = Button(miFrame,border=0.5,text="=",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command=BotonIgual)
 igual.grid(row=4,column=3,padx=1,pady=1)
 
-off = Button(miFrame,text="◯",font=("arial",13,"bold"),bg="red",width=7,height=2,fg="white",command=root.destroy)
+off = Button(miFrame,border=0.5,text="◯",font=("arial",13,"bold"),bg="red",width=7,height=2,fg="white",command=root.destroy)
 off.grid(row=0,column=0,padx=1,pady=1)
 
-Pi = Button(miFrame,text="π",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command= lambda:PiComando("π"))
+Pi = Button(miFrame,border=0.5,text="π",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange",command= lambda:PiComando("π"))
 Pi.grid(row=5,column=1,padx=1,pady=1)
 
-RCuadrada = Button(miFrame,text="√",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange", command = lambda:RCuadradaComando("√"))
+RCuadrada = Button(miFrame,border=0.5,text="√",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange", command = lambda:RCuadradaComando("√"))
 RCuadrada.grid(row=5,column=2,padx=1,pady=1)
 
-Exponente = Button(miFrame,text="X^",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange", command= ExponenteComando )
+Exponente = Button(miFrame,border=0.5,text="X^",font=("arial",13,"bold"),bg="white",width=7,height=2,fg="dark orange", command= ExponenteComando )
 Exponente.grid(row=5,column=3,padx=1,pady=1)
 
 #--------- FRAMES Y ENTRYs ---------
